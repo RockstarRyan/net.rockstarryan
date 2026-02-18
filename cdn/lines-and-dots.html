@@ -1,0 +1,199 @@
+<p>I agree that the games we played in Week 3 aligned very closely with the topic of <em>backwards reasoning</em> covered in Chapter 3. Specifically, regarding the lines-and-midpoints game, it is possible to ensure a winning outcome with a correct first free (second overall) move. Another student (apologies for not remembering your name!) and I stayed after class on Thursday to break it down. Given the limited allowable moves within the rules of the game, it is possible to list all possible outcomes in the following tree:</p>
+<ul>
+    <li>Player 1 starts. Vertices with <strong>three</strong> edges: <strong>0</strong>; vertices with&nbsp;<strong>two</strong> edges: <strong>1</strong>; <strong>one</strong> edge:<strong> 2</strong> (shorthand:&nbsp;<strong>0-1-2</strong>)
+        <ul>
+            <li>Player 2 draws a line between an outer vertex and the other outer vertex. <strong>0-4-0</strong>.<br />
+                <ul>
+                    <li>Player 1 draws a line between a corner and a midpoint, inside the semicircle. <strong>2-3-0</strong>.
+                        <ul>
+                            <li>Player 2 draws an internal line between any two vertices. <strong>4-2-0</strong>.
+                                <ul>
+                                    <li>Player 1 connects the remaining two internal vertices. <strong>6-1-0</strong><strong>, no moves. P</strong><strong>layer 1 wins!</strong>&nbsp;</li>
+                                </ul>
+                            </li>
+                            <li>Player 2 draws an external line between the two outside vertices. <strong>4-2-0, no moves. </strong><strong>Player 2 wins</strong><strong>!</strong></li>
+                        </ul>
+                    </li>
+                    <li>Player 1 draws a line between a corner and a midpoint, outside the semicircle. <strong>2-3-0</strong>.
+                        <ul>
+                            <li>Player 2 draws an internal line between the two inside vertices. <strong>4-2-0, no moves. Player 2 wins!</strong></li>
+                            <li>Player 2 draws an external line between any two vertices. <strong>4-2-0</strong>.<strong></strong>
+                                <ul>
+                                    <li>Player 1 connects the remaining two external vertices. <strong>6-1-0, no moves.</strong>&nbsp;<strong>Player 1 wins!</strong>&nbsp;</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Player 1 draws a line between a corner and the other corner, inside the semicircle. <strong>2-3-0.</strong>
+                        <ul>
+                            <li>Player 2 draws an internal line between the inside midpoint and an edge midpoint. <strong>4-2-0, no moves. Player 2 wins!</strong></li>
+                            <li>Player 2 draws an external line between the two edge midpoints. <strong>4-2-0, no moves. Player 2 wins!</strong><strong></strong><strong></strong></li>
+                        </ul>
+                    </li>
+                    <li>Player 1 draws a line between a corner and the other corner, outside the semicircle. <strong>2-3-0.</strong><strong></strong>
+                        <ul>
+                            <li>Player 2 draws an internal line between the inside midpoint and an edge midpoint. <strong>4-2-0, no moves. Player 2 wins!</strong></li>
+                            <li>Player 2 draws an external line between the two edge midpoints. <strong>4-2-0, no moves. Player 2 wins!</strong></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Player 2 draws a line between an outer vertex and the middle vertex. <strong>1-2-1</strong>.
+                <ul>
+                    <li>Player 1 draws an internal line between the two 2-edge vertices. <strong>3-1-1, no moves. Player 1 wins!</strong>&nbsp;</li>
+                    <li>Player 1 draws an external line between the two 2-edge vertices.&nbsp;<strong>3-1-1</strong>.<strong></strong>
+                        <ul>
+                            <li>Player 2 draws a line between the only available vertices.&nbsp;<strong>4-2-0</strong>.
+                                <ul>
+                                    <li>Player 1 draws a line between the only available vertices.&nbsp;<strong>6-1-0, no moves. Player 1 wins!</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Player 1 draws an external line between a two-edge vertex and the one-edge vertex.&nbsp;<strong>2-3-0</strong>.
+                        <ul>
+                            <li>Player 2 draws a line between the new midpoint and its endpoint on the opposite side of the third vertex.&nbsp;<strong>4-2-0, no moves. Player 2 wins!</strong>&nbsp;</li>
+                            <li>Player 2 draws any other line connecting any two vertices.&nbsp;<strong>4-2-0</strong>.
+                                <ul>
+                                    <li>Player 1 draws a line between the only available vertices.&nbsp;<strong>6-1-0, no moves. Player 1 wins!</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Player 2 draws a line between an outer vertex and the same outer vertex. <strong>1-2-1</strong>.<strong></strong>
+                <ul>
+                    <li>Player 1 draws a line between the one-edge vertex and itself.<strong> 2-3-0</strong>.
+                        <ul>
+                            <li>Player 2 draws a line between any two vertices.&nbsp;<strong>4-2-0</strong>.
+                                <ul>
+                                    <li>Player 1 draws a line between the two remaining vertices.&nbsp;<strong>6-1-0, no moves. Player 1 wins!</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Player 1 draws a line between the one-edge vertex and a two-edge vertex. <strong>2-3-0</strong>.
+                        <ul>
+                            <li>Player 2 draws an internal line between the new midpoint and the former one-edge vertex. <strong>4-2-0, no moves. Player 2 wins!</strong> &nbsp;</li>
+                            <li>Player 2 draws an external line between any two vertices. <strong>4-2-0</strong>.<strong></strong>
+                                <ul>
+                                    <li>Player 1 connects the remaining two external vertices. <strong>6-1-0, no moves.</strong>&nbsp;<strong>Player 1 wins!</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Player 1 draws a line between the two 2-edge vertices.&nbsp;<strong>3-1-1</strong>.
+                        <ul>
+                            <li>Player 2 draws a line between the only available vertices.&nbsp;<strong>4-2-0</strong>.
+                                <ul>
+                                    <li>Player 1 draws a line between the only available vertices.&nbsp;<strong>6-1-0, no moves. Player 1 wins!</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<p>At first glance, one can interpret that the chances of each person winning are equal, since there are eight outcomes wherein Player 1 wins and eight wherein Player 2 wins. However, if each person plays with proper strategy, Player 2 will always end up winning. Consider the same tree as before, but with rows shaded to indicate which player would win under ideal strategy if that action were taken (rows shaded using backwards reasoning):</p>
+<ul>
+    <li><span style="background-color: #c2e0f4;">Player 1 starts. Vertices with <strong>three</strong> edges: <strong>0</strong>; vertices with&nbsp;<strong>two</strong> edges: <strong>1</strong>; <strong>one</strong> edge:<strong> 2</strong> (shorthand:&nbsp;<strong>0-1-2</strong>)</span>
+        <ul>
+            <li><span style="background-color: #c2e0f4;">Player 2 draws a line between an outer vertex and the other outer vertex. <strong>0-4-0</strong>.</span><br />
+                <ul>
+                    <li><span style="background-color: #c2e0f4;">Player 1 draws a line between a corner and a midpoint, inside the semicircle. <strong>2-3-0</strong>.</span>
+                        <ul>
+                            <li><span style="background-color: #fbeeb8;">Player 2 draws an internal line between any two vertices. <strong>4-2-0</strong>.</span>
+                                <ul>
+                                    <li><span style="background-color: #fbeeb8;">Player 1 connects the remaining two internal vertices. <strong>6-1-0</strong><strong>, no moves. P</strong><strong>layer 1 wins!</strong>&nbsp;</span></li>
+                                </ul>
+                            </li>
+                            <li><span style="background-color: #c2e0f4;">Player 2 draws an external line between the two outside vertices. <strong>4-2-0, no moves. </strong><strong>Player 2 wins</strong><strong>!</strong></span></li>
+                        </ul>
+                    </li>
+                    <li><span style="background-color: #c2e0f4;">Player 1 draws a line between a corner and a midpoint, outside the semicircle. <strong>2-3-0</strong>.</span>
+                        <ul>
+                            <li><span style="background-color: #c2e0f4;">Player 2 draws an internal line between the two inside vertices. <strong>4-2-0, no moves. Player 2 wins!</strong></span></li>
+                            <li><span style="background-color: #fbeeb8;">Player 2 draws an external line between any two vertices. <strong>4-2-0</strong>.<strong></strong></span>
+                                <ul>
+                                    <li><span style="background-color: #fbeeb8;">Player 1 connects the remaining two external vertices. <strong>6-1-0, no moves.</strong>&nbsp;<strong>Player 1 wins!</strong>&nbsp;</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span style="background-color: #c2e0f4;">Player 1 draws a line between a corner and the other corner, inside the semicircle. <strong>2-3-0.</strong></span>
+                        <ul>
+                            <li><span style="background-color: #c2e0f4;">Player 2 draws an internal line between the inside midpoint and an edge midpoint. <strong>4-2-0, no moves. Player 2 wins!</strong></span></li>
+                            <li><span style="background-color: #c2e0f4;">Player 2 draws an external line between the two edge midpoints. <strong>4-2-0, no moves. Player 2 wins!</strong><strong></strong><strong></strong></span></li>
+                        </ul>
+                    </li>
+                    <li><span style="background-color: #c2e0f4;">Player 1 draws a line between a corner and the other corner, outside the semicircle. <strong>2-3-0.</strong><strong></strong></span>
+                        <ul>
+                            <li><span style="background-color: #c2e0f4;">Player 2 draws an internal line between the inside midpoint and an edge midpoint. <strong>4-2-0, no moves. Player 2 wins!</strong></span></li>
+                            <li><span style="background-color: #c2e0f4;">Player 2 draws an external line between the two edge midpoints. <strong>4-2-0, no moves. Player 2 wins!</strong></span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><span style="background-color: #fbeeb8;">Player 2 draws a line between an outer vertex and the middle vertex. <strong>1-2-1</strong>.</span>
+                <ul>
+                    <li><span style="background-color: #fbeeb8;">Player 1 draws an internal line between the two 2-edge vertices. <strong>3-1-1, no moves. Player 1 wins!</strong>&nbsp;</span></li>
+                    <li><span style="background-color: #fbeeb8;">Player 1 draws an external line between the two 2-edge vertices.&nbsp;<strong>3-1-1</strong>.<strong></strong></span>
+                        <ul>
+                            <li><span style="background-color: #fbeeb8;">Player 2 draws a line between the only available vertices.&nbsp;<strong>4-2-0</strong>.</span>
+                                <ul>
+                                    <li><span style="background-color: #fbeeb8;">Player 1 draws a line between the only available vertices.&nbsp;<strong>6-1-0, no moves. Player 1 wins!</strong></span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span style="background-color: #c2e0f4;">Player 1 draws an external line between a two-edge vertex and the one-edge vertex.&nbsp;<strong>2-3-0</strong>.</span>
+                        <ul>
+                            <li><span style="background-color: #c2e0f4;">Player 2 draws a line between the new midpoint and its endpoint on the opposite side of the third vertex.&nbsp;<strong>4-2-0, no moves. Player 2 wins!</strong>&nbsp;</span></li>
+                            <li><span style="background-color: #fbeeb8;">Player 2 draws any other line connecting any two vertices.&nbsp;<strong>4-2-0</strong>.</span>
+                                <ul>
+                                    <li><span style="background-color: #fbeeb8;">Player 1 draws a line between the only available vertices.&nbsp;<strong>6-1-0, no moves. Player 1 wins!</strong></span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><span style="background-color: #fbeeb8;">Player 2 draws a line between an outer vertex and the same outer vertex. <strong>1-2-1</strong>.</span><strong></strong>
+                <ul>
+                    <li><span style="background-color: #fbeeb8;">Player 1 draws a line between the one-edge vertex and itself.<strong> 2-3-0</strong>.</span>
+                        <ul>
+                            <li><span style="background-color: #fbeeb8;">Player 2 draws a line between any two vertices.&nbsp;<strong>4-2-0</strong>.</span>
+                                <ul>
+                                    <li><span style="background-color: #fbeeb8;">Player 1 draws a line between the two remaining vertices.&nbsp;<strong>6-1-0, no moves. Player 1 wins!</strong></span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span style="background-color: #c2e0f4;">Player 1 draws a line between the one-edge vertex and a two-edge vertex. <strong>2-3-0</strong>.</span>
+                        <ul>
+                            <li><span style="background-color: #c2e0f4;">Player 2 draws an internal line between the new midpoint and the former one-edge vertex. <strong>4-2-0, no moves. Player 2 wins!</strong> &nbsp;</span></li>
+                            <li><span style="background-color: #fbeeb8;">Player 2 draws an external line between any two vertices. <strong>4-2-0</strong>.<strong></strong></span>
+                                <ul>
+                                    <li><span style="background-color: #fbeeb8;">Player 1 connects the remaining two external vertices. <strong>6-1-0, no moves.</strong>&nbsp;<strong>Player 1 wins!</strong></span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span style="background-color: #fbeeb8;">Player 1 draws a line between the two 2-edge vertices.&nbsp;<strong>3-1-1</strong>.</span>
+                        <ul>
+                            <li><span style="background-color: #fbeeb8;">Player 2 draws a line between the only available vertices.&nbsp;<strong>4-2-0</strong>.</span>
+                                <ul>
+                                    <li><span style="background-color: #fbeeb8;">Player 1 draws a line between the only available vertices.&nbsp;<strong>6-1-0, no moves. Player 1 wins!</strong></span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<p>While Player 1 may have more lines shaded, and more second-move options that would guarantee a victory if taken, it is the first move of choice that will guarantee Player 2 a victory.</p>

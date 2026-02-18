@@ -1,0 +1,32 @@
+/*
+	Created by Ryan Gross.
+*/
+
+:root {
+	--cp-body-bg:#000;		/* Body background-color */
+	--cp-hf-bg:#024;		/* Header & footer background color */
+	--cp-th-bg:#00375B;		/* th background-color */
+	--cp-th-bdr-color:#444; /* thead border-color */
+	--cp-special-text:#09e;	/* Orange */
+}
+
+body {background-color:var(--cp-body-bg);}
+
+header {background-color:var(--cp-hf-bg);}
+#svg-newgame {fill:#09e; stroke:#016;}
+
+a {color:var(--cp-special-text);}
+
+.pop-up input[type='submit'], .pop-up button {background-color:#222; color:var(--cp-special-text);}
+.pop-up input[type='submit']:focus, .pop-up button:focus {background-color:#292929;}
+.pop-up input[type='submit']:hover, .pop-up button:hover {background-color:#333; color:var(--cp-special-text);}
+
+button {color:var(--cp-special-text); background-color:#333;}
+button:hover {color:var(--cp-special-text); background-color:#424242;}
+button.disabled:hover {color:var(--cp-special-text); background-color:#333;}
+
+.table thead th {background-color:var(--cp-th-bg);}
+.table thead th:not(:last-child) {border-right-color:var(--cp-th-bdr-color);}
+.table tbody td.selected {background-color:#09e;}
+
+footer {background-color:var(--cp-hf-bg);}

@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head>
+	<meta charset='UTF-8'>
+	<title>HTML/JS Video Test</title>
+	<style>
+		body {font-family:"Helvetica","Arial",sans-serif;}
+		h2 {font-size:36px;}
+		#video-box {position:relative; width:640px; height:360px;}
+		#video-box > video {position:absolute;}
+		#video-box > #cover-screen {position:absolute; width:inherit; height:inherit; display:flex; flex-flow:column nowrap; justify-content:center; background-color:#000a; color:#fff; display:none;}
+		#video-box > #cover-screen > * {margin-left:20px;}
+		#video-box > #cover-screen > div {margin-top:10px;}
+		#video-controls {position:relative;}
+	</style>
+</head><body>
+	<div id='video-box'>
+		<video id='test-video' width='640' controls>
+			<source src='test_video.mp4' type='video/mp4'>
+			Your browser does not support HTML5 video.
+		</video>
+		<div id='cover-screen'>
+			<h2>Your answer:</h2>
+			<div><input type='radio' id='radio-a' name='video-pause' onclick='openVideo("a")'> <label for='radio-a'>Option A</label></div>
+			<div><input type='radio' id='radio-b' name='video-pause' onclick='openVideo("b")'> <label for='radio-b'>Option B</label></div>
+			<div><input type='radio' id='radio-c' name='video-pause' onclick='openVideo("c")'> <label for='radio-c'>Option C</label></div>
+			<br>
+			<button onclick='closeScreen()'>Back to Video</button>
+		</div>
+	</div>
+	<div id='video-controls'>
+		<button onclick="playPause()">Play/Pause</button>
+		<button onclick="changeWidth(960)">Large</button>
+		<button onclick="changeWidth(320)">Small</button>
+		<button onclick="changeWidth(640)">Normal</button>
+	</div>
+	<script>
+		var v = document.getElementById("test-video"), int = false, played = false;
+
+		v.ontimeupdate = () => {
+			if (int === false && v.currentTime != 13.5) {
+				console.log(v.currentTime);
+				if (v.currentTime >= 12.75 && v.currentTime < 13.5) {
+					int = setInterval(() => {
+						console.log("Interval check");
+						if (v.currentTime < 12.75 || v.currentTime > 13.5 || v.paused == true) {
+							clearInterval(int);
+							int = false;
+						} else if (v.currentTime >= 13.45 && v.currentTime < 13.5) {
+							console.log("Fired");
+							v.pause();
+							v.currentTime = 13.5;
+							clearInterval(int);
+							int = false;
+							document.getElementById('cover-screen').style.display = 'block';
+						}
+					}, 50);
+					console.log("Interval set");
+				}
+			}
+		};
+
+		function playPause() {
+			if (v.paused) {
+				v.play();
+			} else {
+				v.pause();
+			}
+		}
+
+		function changeWidth(width) {
+			v.width = width;
+		}
+
+		function openVideo(answer) {
+			document.getElementById('radio-'+answer).checked = false;
+			window.open('video_'+answer+'.html');
+		}
+
+		function closeScreen() {
+			document.getElementById('cover-screen').style.display = 'none';
+			v.play();
+		}
+	</script>
+</body></html>

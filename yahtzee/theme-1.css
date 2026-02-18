@@ -1,0 +1,48 @@
+/*
+	Created by Ryan Gross.
+*/
+
+:root {
+	--cp-body-bg:#410;		/* Body background-color */
+	--cp-hf-bg:#800;		/* Header & footer background color */
+	--cp-th-bg:#910;		/* th background-color */
+	--cp-th-bdr-color:#888; /* thead border-color */
+	--cp-special-text:#f80;	/* Orange */
+}
+
+body {background-color:var(--cp-body-bg);}
+
+header {background-color:var(--cp-hf-bg);}
+header button {background-color:#b00; color:#fcb; text-shadow:1px 1px #b30;}
+header button:hover {background-color:#c00; color:#fff8ed;}
+#svg-newgame {fill:#f80; stroke:#510;}
+
+a {color:var(--cp-special-text);}
+
+.pop-up input[type='submit'], .pop-up button {background-color:#600; color:var(--cp-special-text);}
+.pop-up input[type='submit']:focus, .pop-up button:focus {background-color:#660000;}
+.pop-up input[type='submit']:hover, .pop-up button:hover {background-color:#700; color:var(--cp-special-text);}
+
+button {color:var(--cp-special-text); background-color:#700;}
+button:hover {color:var(--cp-special-text); background-color:#800;}
+button.disabled:hover {color:var(--cp-special-text); background-color:#700;}
+
+.roll-dice-bg {fill:#b00;}
+.roll-dice-dot {fill:#fff8ed;}
+.roll-dice-stroke {stroke:#fff8ed70;}
+
+.game {background:#600;}
+
+.table thead th {background-color:var(--cp-th-bg);}
+.table thead th:not(:last-child) {border-right-color:var(--cp-th-bdr-color);}
+.table.table-hcol tbody td:first-child {background-color:#443333;}
+.table tbody td {background-color:#181616;}
+.table tbody td.selected {background-color:#c00;}
+.table.table-onecell tbody td {background-color:#800; border-color:#600;}
+.table tfoot td {background-color:#600; border-color:#444;}
+
+.log {background-color:#500;}
+
+.pop-up {background-color:#655;}
+
+footer {background-color:var(--cp-hf-bg);}

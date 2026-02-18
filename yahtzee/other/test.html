@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head>
+    <style>
+        #test-container {width:300px; border:1px solid black; height:50px;}
+		#tc2 {}
+    </style>
+</head><body id='body'>
+    <div id='test-container'></div>
+	<button onclick="myFunction(this.innerHTML)">Hi Ryan Gross</button>
+	<input type="checkbox" onchange="myFunction(this.checked)">
+	<script>
+        var cont = document.getElementById("test-container");
+
+		function myFunction(value) {
+			console.log(value);
+			console.log(value.split(" "));
+		}
+
+		var input = document.createElement("INPUT");
+		input.id = "id";
+		input.type = "text";
+		input.placeholder = "4";
+		input.value = "4";
+		input.onchange = "myFunction()";
+
+		document.getElementById('body').appendChild(input);
+
+
+
+    </script>
+</body></html>

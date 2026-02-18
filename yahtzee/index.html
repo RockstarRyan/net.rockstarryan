@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="en"><head>
+	<title>Online Yahtzee</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Online scorekeeper for games">
+	<meta name="keywords" content="scorekeeper">
+	<meta name="author" content="Ryan Gross">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type='text/css' rel='stylesheet' href='style.css'>
+	<link type='text/css' rel='stylesheet' href='theme-1.css'>
+	<link type='text/css' rel='stylesheet' href='theme-2.css'>
+	<style>
+	</style>
+</head><body>
+	<header>
+		<h1>Yahtzee</h1>
+		<button class='button enabled' id='button-new-game' onclick='openPopUpShortcut("confirm-new-game")'>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+				<path id='svg-newgame' d="M40 40 L40 5 L60 5 L60 40 L95 40 L95 60 L60 60 L60 95 L40 95 L40 60 L5 60 L5 40 L40 40 Z" />
+			</svg>New Game</button>
+		<button class='button' id='button-open-settings-menu' onclick='openPopUpShortcut("settings-menu")'>
+			<img id='img-settings' src='images/theme2-settings.svg'>Settings</button>
+	</header>
+	<main id='app-container'>
+		<div id='top-row'>
+			<button class='button enabled' id='button-roll-dice' onclick='rollDice()'>
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="101.6303154891493 31.285587329775872 350 272.00000000000006" width="350" height="272">
+					<defs>
+						<path d="M376.13 33.06C382.94 47.6 437.35 163.9 444.15 178.44C444.74 181.98 440.31 199.13 432.48 201.35C416.48 199.92 288.45 188.49 272.44 187.06C268.6 185.88 255.89 175.24 259.14 161.94C265.36 153.37 296.48 110.51 352.49 33.36C364.8 30.7 372.69 30.6 376.13 33.06Z" id="c1mxXAnyAM"></path>
+						<path d="M258.86 165.48C259.64 157.46 265.91 93.28 266.69 85.26C267.4 78.02 273.39 69.63 280.01 66.6C287.34 63.26 346 36.48 353.34 33.14C359.96 30.12 364.79 33.57 364.09 40.81C363.3 48.83 357.04 113.01 356.25 121.03C355.55 128.27 349.55 136.66 342.93 139.69C338.05 141.92 313.6 153.07 269.61 173.15C261.97 172.87 258.39 170.31 258.86 165.48Z" id="anqHsyoMN"></path>
+						<path d="M312.55 92.08C306.97 94.63 301.96 101.65 301.36 107.76C300.76 113.87 304.81 116.76 310.39 114.21C315.98 111.66 320.99 104.64 321.59 98.53C322.18 92.42 318.14 89.53 312.55 92.08Z" id="a19fWVNLWA"></path>
+						<path d="M432.27 201.42C424.93 204.76 366.22 231.42 358.88 234.75C352.25 237.76 341.99 236.77 336.06 232.55C329.5 227.87 276.98 190.46 270.41 185.78C264.49 181.56 265.06 175.64 271.68 172.64C279.02 169.3 337.73 142.64 345.07 139.31C351.7 136.3 361.97 137.29 367.89 141.51C372.27 144.63 394.15 160.22 433.54 188.28C437.11 195.04 436.69 199.42 432.27 201.42Z" id="a65fzdfrC"></path>
+						<path d="M396.07 196.87C401.07 200.43 409.66 201.26 415.25 198.72C420.84 196.18 421.32 191.24 416.32 187.67C411.32 184.11 402.73 183.28 397.14 185.82C391.55 188.36 391.07 193.31 396.07 196.87Z" id="h4ENn4x6Gv"></path>
+						<path d="M344.87 160.39C349.87 163.96 358.46 164.79 364.05 162.25C369.64 159.71 370.12 154.76 365.12 151.2C360.12 147.64 351.53 146.81 345.94 149.35C340.35 151.89 339.87 156.83 344.87 160.39Z" id="bBrCVhK1"></path>
+						<path d="M287.63 186.39C292.64 189.95 301.22 190.78 306.81 188.24C312.4 185.7 312.88 180.76 307.88 177.19C302.88 173.63 294.29 172.8 288.7 175.34C283.11 177.88 282.63 182.82 287.63 186.39Z" id="f1qSoNl0mC"></path>
+						<path d="M341.85 191.63C346.85 195.19 355.44 196.02 361.03 193.48C366.62 190.94 367.1 186 362.1 182.43C357.1 178.87 348.51 178.04 342.92 180.58C337.33 183.12 336.85 188.06 341.85 191.63Z" id="aawRp1y29"></path>
+						<path d="M338.83 222.86C343.84 226.42 352.42 227.25 358.01 224.71C363.6 222.18 364.08 217.23 359.08 213.67C354.08 210.1 345.49 209.27 339.9 211.81C334.31 214.35 333.83 219.3 338.83 222.86Z" id="kfvj4nYKL"></path>
+						<path d="M376.5 33.51C383.05 38.2 435.5 75.71 442.06 80.4C447.98 84.63 452.25 94.02 451.56 101.26C450.79 109.28 444.65 173.47 443.88 181.49C443.18 188.74 437.78 191.2 431.86 186.97C425.3 182.28 372.86 144.76 366.3 140.07C360.38 135.84 356.11 126.45 356.8 119.21C357.31 113.86 359.87 87.12 364.48 38.98C368.55 32.51 372.55 30.68 376.5 33.51Z" id="c3hYygm2M5"></path>
+						<path d="M390.65 67.13C391.24 61.02 387.66 53.17 382.67 49.6C377.67 46.02 373.15 48.08 372.57 54.2C371.98 60.31 375.55 68.16 380.55 71.73C385.54 75.3 390.07 73.24 390.65 67.13Z" id="abnOYAH1c"></path>
+						<path d="M384.66 129.71C385.25 123.59 381.67 115.74 376.68 112.17C371.68 108.6 367.16 110.66 366.58 116.77C365.99 122.88 369.57 130.73 374.56 134.3C379.55 137.88 384.08 135.82 384.66 129.71Z" id="dxRrzLbx"></path>
+						<path d="M435.79 166.28C436.38 160.16 432.8 152.31 427.81 148.74C422.81 145.17 418.29 147.23 417.71 153.34C417.12 159.45 420.7 167.3 425.69 170.88C430.68 174.45 435.21 172.39 435.79 166.28Z" id="c34Su7TkT5"></path>
+						<path d="M441.78 103.7C442.37 97.59 438.79 89.74 433.8 86.17C428.8 82.59 424.28 84.65 423.7 90.77C423.11 96.88 426.68 104.73 431.68 108.3C436.67 111.87 441.2 109.81 441.78 103.7Z" id="d72xSmrSzu"></path>
+						<path d="M305.07 227.79C290.18 234.57 171.08 288.83 156.19 295.61C152.22 295.35 143.8 294.52 137.42 285.52C138.78 269.38 149.7 140.25 151.07 124.11C152.25 120.27 162.88 107.55 176.18 110.8C184.76 117.02 227.62 148.14 304.77 204.15C307.43 216.46 307.54 224.34 305.07 227.79Z" id="c30las1ch4"></path>
+						<path d="M172.65 110.52C180.67 111.31 244.85 117.57 252.87 118.36C260.11 119.06 268.51 125.06 271.53 131.67C274.87 139.01 301.65 197.66 305 205C308.02 211.62 304.56 216.45 297.32 215.75C289.3 214.96 225.12 208.7 217.1 207.91C209.86 207.21 201.46 201.21 198.44 194.6C196.21 189.71 185.05 165.27 164.97 121.27C165.26 113.64 167.82 110.05 172.65 110.52Z" id="i17FqFgrXd"></path>
+						<path d="M246.05 164.22C243.5 158.63 236.48 153.62 230.37 153.02C224.26 152.43 221.37 156.47 223.92 162.06C226.47 167.64 233.49 172.65 239.6 173.25C245.71 173.85 248.6 169.8 246.05 164.22Z" id="a12UodWxjm"></path>
+						<path d="M136.7 283.93C133.37 276.59 106.7 217.88 103.37 210.54C100.36 203.92 101.35 193.65 105.58 187.72C110.25 181.16 147.67 128.64 152.34 122.08C156.57 116.15 162.48 116.72 165.49 123.35C168.82 130.69 195.49 189.4 198.82 196.73C201.83 203.36 200.83 213.63 196.61 219.55C193.5 223.93 177.91 245.81 149.84 285.2C143.09 288.77 138.7 288.34 136.7 283.93Z" id="aBOCukqK"></path>
+						<path d="M141.26 247.73C137.69 252.73 136.86 261.32 139.4 266.91C141.94 272.5 146.89 272.98 150.45 267.98C154.01 262.98 154.84 254.39 152.3 248.8C149.77 243.21 144.82 242.73 141.26 247.73Z" id="a6mIaoOK0"></path>
+						<path d="M151.74 139.3C148.18 144.3 147.35 152.89 149.88 158.48C152.42 164.07 157.37 164.54 160.93 159.54C164.5 154.54 165.33 145.96 162.79 140.37C160.25 134.78 155.3 134.3 151.74 139.3Z" id="bdNXToxoI"></path>
+						<path d="M304.63 228.16C299.94 234.71 262.42 287.16 257.73 293.71C253.5 299.63 244.11 303.9 236.87 303.21C228.84 302.44 164.65 296.3 156.63 295.53C149.39 294.84 146.93 289.43 151.16 283.52C155.85 276.96 193.36 224.52 198.05 217.96C202.29 212.04 211.67 207.77 218.92 208.46C224.27 208.97 251.01 211.53 299.15 216.14C305.62 220.21 307.45 224.21 304.63 228.16Z" id="ehBD2zi1J"></path>
+						<path d="M271 242.31C277.11 242.89 284.96 239.32 288.54 234.33C292.11 229.33 290.05 224.81 283.94 224.22C277.82 223.64 269.97 227.21 266.4 232.21C262.83 237.2 264.89 241.72 271 242.31Z" id="gNVwFuWJz"></path>
+						<path d="M171.85 287.45C177.96 288.03 185.81 284.46 189.38 279.47C192.96 274.47 190.9 269.95 184.79 269.36C178.67 268.78 170.82 272.35 167.25 277.35C163.68 282.34 165.74 286.86 171.85 287.45Z" id="c2IORCRPhO"></path>
+						<path d="M221.42 264.88C227.54 265.46 235.39 261.89 238.96 256.9C242.53 251.9 240.47 247.38 234.36 246.79C228.25 246.21 220.4 249.78 216.83 254.78C213.25 259.77 215.31 264.29 221.42 264.88Z" id="a6cAxSKy6k"></path>
+					</defs>
+					<g>
+						<g>
+							<use xlink:href="#c1mxXAnyAM" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#c1mxXAnyAM" opacity="1" fill-opacity="0" stroke="#404040" stroke-width="2" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#anqHsyoMN" opacity="1" fill="#ffffff" fill-opacity="1" class="roll-dice-bg"></use>
+							<g><use xlink:href="#anqHsyoMN" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="7" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#a19fWVNLWA" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#a19fWVNLWA" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#a65fzdfrC" opacity="1" fill="#ffffff" fill-opacity="1" class="roll-dice-bg"></use>
+							<g><use xlink:href="#a65fzdfrC" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="7" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#h4ENn4x6Gv" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#h4ENn4x6Gv" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#bBrCVhK1" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#bBrCVhK1" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#f1qSoNl0mC" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#f1qSoNl0mC" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#aawRp1y29" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#aawRp1y29" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#kfvj4nYKL" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#kfvj4nYKL" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#c3hYygm2M5" opacity="1" fill="#ffffff" fill-opacity="1" class="roll-dice-bg"></use>
+							<g><use xlink:href="#c3hYygm2M5" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="7" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#abnOYAH1c" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#abnOYAH1c" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#dxRrzLbx" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#dxRrzLbx" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#c34Su7TkT5" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#c34Su7TkT5" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#d72xSmrSzu" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#d72xSmrSzu" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#c30las1ch4" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#c30las1ch4" opacity="1" fill-opacity="0" stroke="#404040" stroke-width="2" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#i17FqFgrXd" opacity="1" fill="#ffffff" fill-opacity="1" class="roll-dice-bg"></use>
+							<g><use xlink:href="#i17FqFgrXd" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="7" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#a12UodWxjm" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#a12UodWxjm" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#aBOCukqK" opacity="1" fill="#ffffff" fill-opacity="1" class="roll-dice-bg"></use>
+							<g><use xlink:href="#aBOCukqK" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="7" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#a6mIaoOK0" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#a6mIaoOK0" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#bdNXToxoI" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#bdNXToxoI" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#ehBD2zi1J" opacity="1" fill="#ffffff" fill-opacity="1" class="roll-dice-bg"></use>
+							<g><use xlink:href="#ehBD2zi1J" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="7" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#gNVwFuWJz" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#gNVwFuWJz" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#c2IORCRPhO" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#c2IORCRPhO" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+						<g>
+							<use xlink:href="#a6cAxSKy6k" opacity="1" fill="#404040" fill-opacity="1" class="roll-dice-dot"></use>
+							<g><use xlink:href="#a6cAxSKy6k" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-opacity="1" class="roll-dice-stroke"></use></g>
+						</g>
+					</g>
+				</svg>Roll Dice</button>
+			<button class='button disabled' id='button-undo' onclick='undoSaveRoll()'><span>&#x21BA;</span>Undo Save</button>
+			<span id='roll-counter'>Roll #: 0</span>
+		</div>
+		<!-- App goes here -->
+	</main>
+	<footer>
+		<p>Copyright &copy; Ryan Gross, 2020. All rights reserved</p>
+		<p><span style='font-variant:small-caps;'>Contact:</span> <a class='emaillink' href='mailto:ryan@rockstarryan.net'>ryan@rockstarryan.net</a></p>
+	</footer>
+	<script src="script1.js"></script>
+	<audio id='audio_error'><source src='sounds/error.mp3' type='audio/mp3'>Not supported</audio>
+	<audio id='audio_roll'><source src='sounds/roll.mp3' type='audio/mp3'>Not supported</audio>
+	<audio id='audio_roll-saved'><source src='sounds/roll-saved.mp3' type='audio/mp3'>Not supported</audio>
+	<audio id='audio_pop'><source src='sounds/pop.mp3' type='audio/mp3'>Not supported</audio>
+</body></html>

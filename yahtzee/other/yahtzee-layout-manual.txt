@@ -1,0 +1,114 @@
+<section class='game' id='game-yahtzee'>
+	<div class='die-container'>
+		<div id='die-1' class="die"></div>
+		<input id='die-1-box' class='die-checkbox' name='die-1-box' type='checkbox'>
+	</div>
+	<div class='die-container'>
+		<div id='die-2' class="die"></div>
+		<input id='die-2-box' class='die-checkbox' name='die-2-box' type='checkbox'>
+	</div>
+	<div class='die-container'>
+		<div id='die-3' class="die"></div>
+		<input id='die-3-box' class='die-checkbox' name='die-3-box' type='checkbox'>
+	</div>
+	<div class='die-container'>
+		<div id='die-4' class="die"></div>
+		<input id='die-4-box' class='die-checkbox' name='die-4-box' type='checkbox'>
+	</div>
+	<div class='die-container'>
+		<div id='die-5' class="die"></div>
+		<input id='die-5-box' class='die-checkbox' name='die-5-box' type='checkbox'>
+	</div>
+</section>
+<br>
+<section class='table-container'>
+	<table id='table-uh' class='table-hcol table-frow'>
+		<caption>Upper House</caption>
+		<thead><tr>
+			<th>Category</th>
+			<th>Score</th>
+			<th>Use?</th>
+		</tr></thead>
+		<tbody>
+			<tr>
+				<td>Ones</td>
+				<td id='upper-1s' class='table-scorecell'></td>
+				<td><input id='upper-1s-box' class='table-checkbox' type='checkbox' onclick='saveRoll("upper-1s")'></td>
+			</tr><tr>
+				<td>Twos</td>
+				<td id='upper-2s' class='table-scorecell'></td>
+				<td><input id='upper-2s-box' class='table-checkbox' type='checkbox' onclick='saveRoll("upper-2s")'></td>
+			</tr><tr>
+				<td>Threes</td>
+				<td id='upper-3s' class='table-scorecell'></td>
+				<td><input id='upper-3s-box' class='table-checkbox' type='checkbox' onclick='saveRoll("upper-3s")'></td>
+			</tr><tr>
+				<td>Fours</td>
+				<td id='upper-4s' class='table-scorecell'></td>
+				<td><input id='upper-4s-box' class='table-checkbox' type='checkbox' onclick='saveRoll("upper-4s")'></td>
+			</tr><tr>
+				<td>Fives</td>
+				<td id='upper-5s' class='table-scorecell'></td>
+				<td><input id='upper-5s-box' class='table-checkbox' type='checkbox' onclick='saveRoll("upper-5s")'></td>
+			</tr><tr>
+				<td>Sixes</td>
+				<td id='upper-6s' class='table-scorecell'></td>
+				<td><input id='upper-6s-box' class='table-checkbox' type='checkbox' onclick='saveRoll("upper-6s")'></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>Bonus</td>
+				<td id='uh-bonus' colspan="2"></td>
+			</tr><tr>
+				<td>Total</td>
+				<td id='uh-total' colspan="2"></td>
+			</tr>
+		</tfoot>
+	</table>
+	<table id='table-lh' class='table-hcol table-frow'>
+		<caption>Lower House</caption>
+		<thead><tr>
+			<th>Category</th>
+			<th>Score</th>
+		</tr></thead>
+		<tbody>
+			<tr>
+				<td>Three of a Kind</td>
+				<td id='lower-3'></td>
+			</tr><tr>
+				<td>Four of a Kind</td>
+				<td id='lower-4'></td>
+			</tr><tr>
+				<td>Full House</td>
+				<td id='lower-fh'></td>
+			</tr><tr>
+				<td>Small Straight</td>
+				<td id='lower-sm'></td>
+			</tr><tr>
+				<td>Large Straight</td>
+				<td id='lower-lg'></td>
+			</tr><tr>
+				<td>Five of a Kind</td>
+				<td id='lower-5'></td>
+			</tr><tr>
+				<td>Chance</td>
+				<td id='lower-ch'></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>Total</td>
+				<td id='lh-total'></td>
+			</tr>
+		</tfoot>
+	</table>
+	<table id='table-total' class='table-onecell'>
+		<caption>Total Score</caption>
+		<tbody>
+			<tr>
+				<td id='lower-3'>314</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

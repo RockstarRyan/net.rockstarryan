@@ -1,0 +1,56 @@
+#login-container {display:grid; grid-template:1fr 50px/ 1fr 1fr; justify-content:center; align-items:center; background-color:#222;}
+#login-container div {grid-column:1/3;}
+#login-container h1 {margin-bottom:10px;}
+#login-container p {padding:16px;}
+#login-container p:last-child {text-align:right;}
+
+.center {text-align:center;}
+h2, span, .success, .warning {font-weight:500;}
+.success {background-color:#080; padding:8px; color:#fff8ed;}
+.warning {background-color:#800; padding:8px; color:#fff8ed;}
+.error {color:#cc0;}
+.log {color:#bbb;}
+.small {font-size:12px; color:#aaa; font-style:italic;}
+button {padding:8px 12px; font-size:16px; background-color:#ddd; color:#222; border:0px solid #ddd; text-transform:uppercase;}
+button:active {background-color:#888; color:#000;}
+form {border:1px solid #ddd; padding:20px; border-radius:8px; display:inline-grid; grid-template-columns:auto auto; grid-gap:10px;}
+form p {margin:0 10px 0 0;}
+form button {grid-column:1/3;}
+form .wide {grid-column:1/3;}
+
+#error-not-found {display:none;}
+
+@media (prefers-color-scheme: dark) {
+	body {background-color:#222; color:#ddd;}
+	.log {color:#bbb;}
+	.success {background-color:#080;}
+	.warning {background-color:#800;}
+}
+
+
+body {margin:0; background-color:#111; color:#ddd; height:100vh; font-family:Avenir,Arial,sans-serif;}
+#container {display:grid; grid-template:auto 1fr / 250px 1fr; height:100vh;}
+header {grid-area:1/1/2/3; padding:18px; display:flex; flex-flow:row nowrap; justify-content:space-between; align-items:center; background-color:#333;}
+nav {grid-area:2/1/3/2; padding:18px; background-color:#222;}
+main {grid-area:2/2/3/3; padding:30px; /*display:grid; grid-template-columns:1fr 1fr;*/ overflow-y:auto;}
+
+nav ul {list-style:none; padding:0; user-select:none; -webkit-user-select:none; color:#fff8ed;}
+nav ul > * {padding:2px 6px;}
+nav ul li {font-weight:500;}
+nav ul h3, nav ul li {margin-bottom:4px;}
+nav ul li:hover {background-color:#08b;}
+nav ul li:active {background-color:#08ba;}
+nav ul li a {color:#fff8ed; text-decoration:none; display:block;}
+nav ul li.active {background-color:#08b;}
+
+h1 {margin:0;}
+h2 {margin:10px 0 10px 0;}
+h2:first-child {margin-top:0;}
+
+table {border-collapse:collapse;}
+td, th {border:1px solid #555; padding:4px 8px;}
+th {background-color:#00375B;}
+a {color:#08b;}
+
+#logout-button {display:flex; flex-flow:row nowrap; align-items:center;}
+form.small {display:block; padding:0; border:0; margin-left:10px;}
