@@ -2,7 +2,7 @@
 <html><head>
     <?php 
 
-    $current_puzzle = 13
+    $current_puzzle = 15;
 
     ?>
     <title>Puzzle #<?php echo $current_puzzle; ?> &ndash; Road Trip Puzzles</title>
@@ -12,10 +12,12 @@
 	<meta name="author" content="Ryan Gross">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-		body {font-family:"Apple Chancery", "Cormorant Garamond", cursive, serif; background-color:#C3A77E; color:#000; display:flex; flex-flow:column nowrap; justify-content:space-between; margin:0; padding:0;}
+		body {font-family:"Apple Chancery", "Cormorant Garamond", cursive, serif; background-color:#C3A77E; color:#000; display:flex; flex-flow:column nowrap; justify-content:center; margin:0; padding:0; text-align:center;}
         body.solved {background-color:#000; color:#fff;}
+        a {color:#fff;}
+        p {font-size: 24px;}
 	</style>
-</head><body><?php
+</head><?php
     // Verify answer
 
     $solved = false;
@@ -30,23 +32,26 @@
         }
     }
 
-    $keys = array(13='Broncos', 14='First', 15='Congratulations');
+    $keys = array();
+    $keys[13] = 'Broncos';
+    $keys[14] = 'First';
+    $keys[15] = 'Congratulations';
 
-    if ($solved) {?>
-        <h1>Road Trip Puzzles</h1>
-        <p><?php echo "Key.$current_puzzle: ".$keys[$current_puzzle]; ?></p>
-        <p><a href='../<?php echo $current_puzzle; ?>'>Next Page &gt;</a></p>
-
-    <?php} else {?>
-        <h1>Road Trip Puzzles</h1>
-        <p>Solve page <?php echo $current_puzzle; ?>:</p>
-        <div><form id='form-submitanswer' method='post'>
-            <label for='answer'><p>Solve page <?php echo $current_puzzle; ?>:</p></label>
-            <input type='text' name='answer' id='answer-box' />
-            <input type='submit' title='Submit' value='Submit' />
-        </form></div>
-        <script>
-            document.getElementById('answer-box').focus();
-        </script>
-    <?php}
+    if ($solved) {
+        echo "<body class='solved'>";
+        echo "<h1>Road Trip Puzzles</h1>";
+        echo "<p>Key.$current_puzzle: ".$keys[$current_puzzle]."</p>";
+        echo "<p><a href='../".($current_puzzle+1)."'>Next Page &gt;</a></p>";
+        echo "</body>";
+    } else {
+        echo "<body class='unsolved'>";
+        echo "<h1>Road Trip Puzzles</h1>";
+        echo "<div><form id='form-submitanswer' method='post'>";
+            echo "<label for='answer'><p>Solve page $current_puzzle:</p></label>";
+            echo "<input type='text' name='answer' id='answer-box' />";
+            echo "<input type='submit' title='Submit' value='Submit' />";
+        echo "</form></div>";
+        echo "<script> document.getElementById('answer-box').focus(); </script>";
+        echo "</body>";
+    }
 ?></body></html>
