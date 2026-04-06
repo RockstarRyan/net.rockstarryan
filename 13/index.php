@@ -30,7 +30,10 @@
         }
     }
 
-    $keys = array(13='Broncos', 14='First', 15='Congratulations');
+    $keys = array();
+    $keys[13] = 'Broncos';
+    $keys[14] = 'First';
+    $keys[15] = 'Congratulations';
 
     if ($solved) {?>
         <h1>Road Trip Puzzles</h1>
