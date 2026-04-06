@@ -35,21 +35,18 @@
     $keys[14] = 'First';
     $keys[15] = 'Congratulations';
 
-    if ($solved) {?>
-        <h1>Road Trip Puzzles</h1>
-        <p><?php echo "Key.$current_puzzle: ".$keys[$current_puzzle]; ?></p>
-        <p><a href='../<?php echo $current_puzzle; ?>'>Next Page &gt;</a></p>
-
-    <?php} else {?>
-        <h1>Road Trip Puzzles</h1>
-        <p>Solve page <?php echo $current_puzzle; ?>:</p>
-        <div><form id='form-submitanswer' method='post'>
-            <label for='answer'><p>Solve page <?php echo $current_puzzle; ?>:</p></label>
-            <input type='text' name='answer' id='answer-box' />
-            <input type='submit' title='Submit' value='Submit' />
-        </form></div>
-        <script>
-            document.getElementById('answer-box').focus();
-        </script>
-    <?php}
+    if ($solved) {
+        echo "<h1>Road Trip Puzzles</h1>";
+        echo "<p>Key.$current_puzzle: ".$keys[$current_puzzle]."</p>";
+        echo "<p><a href='../$current_puzzle'>Next Page &gt;</a></p>";
+    } else {
+        echo "<h1>Road Trip Puzzles</h1>";
+        echo "<p>Solve page $current_puzzle:</p>";
+        echo "<div><form id='form-submitanswer' method='post'>";
+            echo "<label for='answer'><p>Solve page <?php echo $current_puzzle; ?>:</p></label>"
+            echo "<input type='text' name='answer' id='answer-box' />";
+            echo "<input type='submit' title='Submit' value='Submit' />";
+        echo "</form></div>";
+        echo "<script> document.getElementById('answer-box').focus(); </script>";
+    }
 ?></body></html>
