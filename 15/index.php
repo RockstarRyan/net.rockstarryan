@@ -20,7 +20,7 @@
 
     $solved = false;
 
-    if (isset($_POST['answer']) {
+    if (isset($_POST['answer'])) {
         $answer = strtolower(trim($_POST['answer']));
         switch ($current_puzzle) {
             case 13: $solved = ($_POST['answer'] == 'ordinance'); break;
