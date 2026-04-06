@@ -37,13 +37,13 @@
     $keys[15] = 'Congratulations';
 
     if ($solved) {
-        echo "<body class'solved'>";
+        echo "<body class='solved'>";
         echo "<h1>Road Trip Puzzles</h1>";
         echo "<p>Key.$current_puzzle: ".$keys[$current_puzzle]."</p>";
         echo "<p><a href='../$current_puzzle'>Next Page &gt;</a></p>";
         echo "</body>";
     } else {
-        echo "<body class'solved'>";
+        echo "<body class='unsolved'>";
         echo "<h1>Road Trip Puzzles</h1>";
         echo "<p>Solve page $current_puzzle:</p>";
         echo "<div><form id='form-submitanswer' method='post'>";
