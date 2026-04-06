@@ -46,7 +46,6 @@
     } else {
         echo "<body class='unsolved'>";
         echo "<h1>Road Trip Puzzles</h1>";
-        echo "<p>Solve page $current_puzzle:</p>";
         echo "<div><form id='form-submitanswer' method='post'>";
             echo "<label for='answer'><p>Solve page $current_puzzle:</p></label>";
             echo "<input type='text' name='answer' id='answer-box' />";
