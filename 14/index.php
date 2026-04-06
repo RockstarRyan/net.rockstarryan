@@ -25,9 +25,9 @@
     if (isset($_POST['answer'])) {
         $answer = strtolower(trim($_POST['answer']));
         switch ($current_puzzle) {
-            case 13: $solved = ($_POST['answer'] == 'ordinance'); break;
-            case 14: $solved = ($_POST['answer'] == 'trinidad'); break;
-            case 15: $solved = ($_POST['answer'] == '62907013'); break;
+            case 13: $solved = ($answer == 'ordinance'); break;
+            case 14: $solved = ($answer == 'trinidad'); break;
+            case 15: $solved = ($answer == '62907013'); break;
             default: $solved = false; break;
         }
     }
