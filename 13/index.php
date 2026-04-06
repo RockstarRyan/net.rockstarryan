@@ -43,7 +43,7 @@
         echo "<h1>Road Trip Puzzles</h1>";
         echo "<p>Solve page $current_puzzle:</p>";
         echo "<div><form id='form-submitanswer' method='post'>";
-            echo "<label for='answer'><p>Solve page <?php echo $current_puzzle; ?>:</p></label>"
+            echo "<label for='answer'><p>Solve page <?php echo $current_puzzle; ?>:</p></label>";
             echo "<input type='text' name='answer' id='answer-box' />";
             echo "<input type='submit' title='Submit' value='Submit' />";
         echo "</form></div>";
