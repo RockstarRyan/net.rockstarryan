@@ -12,10 +12,11 @@
 	<meta name="author" content="Ryan Gross">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-		body {font-family:"Apple Chancery", "Cormorant Garamond", cursive, serif; background-color:#C3A77E; color:#000; display:flex; flex-flow:column nowrap; justify-content:space-between; margin:0; padding:0;}
+		body {font-family:"Apple Chancery", "Cormorant Garamond", cursive, serif; background-color:#C3A77E; color:#000; display:flex; flex-flow:column nowrap; justify-content:center; margin:0; padding:0;}
         body.solved {background-color:#000; color:#fff;}
+        a {color:#fff;}
 	</style>
-</head><body><?php
+</head><?php
     // Verify answer
 
     $solved = false;
@@ -36,10 +37,13 @@
     $keys[15] = 'Congratulations';
 
     if ($solved) {
+        echo "<body class'solved'>";
         echo "<h1>Road Trip Puzzles</h1>";
         echo "<p>Key.$current_puzzle: ".$keys[$current_puzzle]."</p>";
         echo "<p><a href='../$current_puzzle'>Next Page &gt;</a></p>";
+        echo "</body>";
     } else {
+        echo "<body class'solved'>";
         echo "<h1>Road Trip Puzzles</h1>";
         echo "<p>Solve page $current_puzzle:</p>";
         echo "<div><form id='form-submitanswer' method='post'>";
@@ -48,5 +52,6 @@
             echo "<input type='submit' title='Submit' value='Submit' />";
         echo "</form></div>";
         echo "<script> document.getElementById('answer-box').focus(); </script>";
+        echo "</body>";
     }
 ?></body></html>
