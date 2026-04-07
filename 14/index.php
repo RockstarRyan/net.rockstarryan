@@ -12,7 +12,7 @@
 	<meta name="author" content="Ryan Gross">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-		body {font-family:"Apple Chancery", "Cormorant Garamond", cursive, serif; background-color:#C3A77E; color:#000; display:flex; flex-flow:column nowrap; justify-content:center; margin:0; padding:0; text-align:center;}
+		body {font-family:"Apple Chancery", "Cormorant Garamond", serif; background-color:#C3A77E; color:#000; display:flex; flex-flow:column nowrap; justify-content:center; margin:0; padding:0; text-align:center;}
         body.solved {background-color:#000; color:#fff;}
         a {color:#fff;}
         p {font-size: 24px;}
@@ -34,8 +34,8 @@
 
     $keys = array();
     $keys[13] = 'Broncos';
-    $keys[14] = 'First';
-    $keys[15] = 'Congratulations';
+    $keys[14] = 'Denver';
+    $keys[15] = 'Congratulations!';
 
     if ($solved) {
         echo "<body class='solved'>";
