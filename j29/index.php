@@ -3,11 +3,16 @@
     <?php 
 
     $path = $_SERVER['REQUEST_URI'];
-    $puzzle = explode('/',$path);
-    echo var_dump($puzzle);
-    exit(0);
+    $requested_puzzle = explode('/',$path)[2];
+    if (is_int($requested_puzzle)) {
+        $requested_puzzle = int($requested_puzzle);
+        if (!($requested_puzzle>0 && $requested_puzzle<=45)) {
+            echo "Error: invalid URL. Try again";
+            exit(0);
+        }
+    }
 
-    $current_puzzle = 13;
+    $current_puzzle = $requested_puzzle;
 
     ?>
     <title>Puzzle #<?php echo $current_puzzle; ?> &ndash; Road Trip Puzzles</title>
