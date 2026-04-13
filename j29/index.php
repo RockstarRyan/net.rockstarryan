@@ -11,7 +11,7 @@
             exit(0);
         }
     } else {
-        echo "Error: invalid URL (not integer). Try again.")
+        echo "Error: invalid URL (not integer). Try again.";
         exit(0);
     }
 
