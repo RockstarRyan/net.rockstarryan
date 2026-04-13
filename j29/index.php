@@ -3,7 +3,7 @@
     <?php 
 
     $path = $_SERVER['REQUEST_URI'];
-    $requested_puzzle = explode('/',$path)[2];
+    $requested_puzzle = int(explode('/',$path)[2]);
     if (is_int($requested_puzzle)) {
         $requested_puzzle = int($requested_puzzle);
         if (!($requested_puzzle>0 && $requested_puzzle<=45)) {
