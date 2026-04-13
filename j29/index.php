@@ -2,6 +2,11 @@
 <html><head>
     <?php 
 
+    $path = $_SERVER['REQUEST_URI'];
+    $puzzle = explode('/',$path);
+    echo var_dump($puzzle);
+    exit(0);
+
     $current_puzzle = 13;
 
     ?>
