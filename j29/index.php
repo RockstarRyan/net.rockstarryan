@@ -7,9 +7,12 @@
     if (is_int($requested_puzzle)) {
         $requested_puzzle = int($requested_puzzle);
         if (!($requested_puzzle>0 && $requested_puzzle<=45)) {
-            echo "Error: invalid URL. Try again";
+            echo "Error: invalid URL (invalid puzzle number). Try again.";
             exit(0);
         }
+    } else {
+        echo "Error: invalid URL (not integer). Try again.")
+        exit(0);
     }
 
     $current_puzzle = $requested_puzzle;
