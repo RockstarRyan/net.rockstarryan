@@ -90,7 +90,7 @@
     $keys[1] = 'Eyes';
     $keys[2] = 'Height';
     $keys[3] = 'Bottle';
-    $keys[4] = 'Pot';
+    $keys[4] = 'Bo';
     $keys[5] = 'Cross';
     $keys[6] = 'Song';
     $keys[7] = 'Hit';
