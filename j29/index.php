@@ -46,9 +46,9 @@
             case 7: $solved = ($answer == 'dream'); break;
             case 8: $solved = ($answer == 'marin'); break;
             case 9: $solved = ($answer == 'hotel'); break;
-            case 10: $solved = ($answer == ''); break;
+            case 10: $solved = ($answer == '473289156'); break;
             case 11: $solved = ($answer == 'frogs'); break;
-            case 12: $solved = ($answer == ''); break;
+            case 12: $solved = ($answer == '32212'); break;
             case 13: $solved = ($answer == 'ordinance'); break;
             case 14: $solved = ($answer == 'trinidad'); break;
             case 15: $solved = ($answer == '62907013'); break;
@@ -132,6 +132,8 @@
     $keys[43] = 'Gate';
     $keys[44] = 'Affine';
     $keys[45] = 'Congratulations!';
+
+    file_put_contents('attempts.csv',$_SERVER['REMOTE_ADDR']."\t$current_puzzle\t".(($solved) ? "true" : "false")."\t$answer",FILE_APPEND);
 
     if ($solved) {
         echo "<body class='solved'>";
