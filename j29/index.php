@@ -149,7 +149,8 @@
             echo "<input type='text' name='answer' id='answer-box' />";
             echo "<input type='submit' title='Submit' value='Submit' />";
         echo "</form></div>";
-        echo "<p><a href='./solutions.pdf' target='_blank'>Solutions Guide</a></p>";
+        echo "<p><a href='./book.pdf' target='_blank'>Full Puzzle Book</a></p>";
+        echo "<p><a href='./solutions.pdf' target='_blank'>Solutions Guide (spoilers!)</a></p>";
         echo "<script> document.getElementById('answer-box').focus(); </script>";
         echo "</body>";
     }
