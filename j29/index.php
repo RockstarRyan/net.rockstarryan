@@ -133,7 +133,7 @@
     $keys[44] = 'Affine';
     $keys[45] = 'Congratulations!';
 
-    file_put_contents('attempts.csv',$_SERVER['REMOTE_ADDR']."\t$current_puzzle\t".(($solved) ? "true" : "false")."\t$answer\n",FILE_APPEND);
+    file_put_contents('attempts.csv',date("Y-m-d H:i:s")."\t".$_SERVER['REMOTE_ADDR']."\t$current_puzzle\t".(($solved) ? "true" : "false")."\t$answer\n",FILE_APPEND);
 
     if ($solved) {
         echo "<body class='solved'>";

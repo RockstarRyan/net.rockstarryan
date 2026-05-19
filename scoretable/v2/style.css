@@ -1,0 +1,111 @@
+body {font-family:"Avenir", "Arial", sans-serif; background-color:#000; color:#fff8ed; display:flex; flex-flow:column nowrap; justify-content:space-between; margin:0; padding:0;}
+
+header {height:80px; background-color:#024; border-bottom:1px solid #fff8ed; padding-left:10px; display:flex; flex-flow:row wrap; justify-content:space-between;}
+
+nav {min-height:20px; padding:10px 0; font-style:italic; display:flex; flex-flow:row wrap;}
+nav button {margin:0; padding:2px 3px; min-height:30px; font-size:20px; margin-right:15px; color:#09e; background:none; border:none; font-style:italic; font-family:"Avenir", "Arial", sans-serif; border-radius:5px;}
+nav button:hover {color:#07a;}
+.nb-active {color:#07a;}
+
+main {height:calc(100vh - 167px); padding:5px 15px 20px 15px; overflow:none;}
+.screen {height:calc(100vh - 197px); display:none; overflow-y:auto;}
+.screen-active {display:block;}
+
+a {color:#09e;}
+.error-message {display:none; color:#a00; font-style:italic;}
+h2 {max-width:100%; margin:10px 0 2px 0; text-align:center; font-size:24px; min-height:20px;}
+hr {margin:10px 0 20px 0;}
+button {margin:0; height:26px; font-size:16px; color:#09e; background-color:#333; border:none; font-style:italic; font-family:"Avenir", "Arial", sans-serif;}
+input {background:#333; height:32px; color:#09e; text-align:center; font-size:16px; border-radius:5px; border:none; font-family:"Avenir", "Arial", sans-serif;}
+button:hover {color:#09e;}
+input:hover, input:focus {background-color:#555;}
+
+.settings-line {min-height:40px; display:flex; flex-flow:row wrap; align-content:flex-end; background-color:#222; padding:4px 10px; border-radius:5px; margin-bottom:10px;}
+.settings-line h4 {line-height:40px; margin:0; padding:0; font-size:24px; margin-right:15px; color:#ddd6cb;}
+.setting {margin-right:20px; display:flex;}
+.setting label {margin:0; padding:0; height:40px; line-height:40px; vertical-align:middle;}
+.setting #gyn-teams {}
+.setting .changeSD {width:50px;}
+.setting .changeINC {margin-top:3px;}
+.setting input[type="text"] {background:#333; height:32px; color:#09e; width:30px; text-align:center; font-size:16px; margin-left:5px; border-radius:5px; border:none; font-family:"Avenir", "Arial", sans-serif; margin-top:3px;}
+.setting input[type='color'] {height:36px; padding:0; width:36px; outline:0;}
+.setting button {height:36px; border-radius:5px; margin:2px 0 2px 5px; min-width:40px; padding:0 6px;}
+.setting button:focus, .setting button:hover {border:2px solid #555; background-color:#333; padding:0 4px;}
+.setting input:hover, .setting input:focus, .setting button:active {background-color:#555;}
+
+.table-container {border-bottom:1px solid #9D9A95; margin-bottom:20px; padding-bottom:10px;}
+.table-container.tc-last {border:none; margin-bottom:none;}
+
+.scoretable {max-width:100%; border-radius:5px; min-height:10px; background-color:#111; margin-bottom:10px;}
+.st-firstcolumn {text-align:right; font-weight:bold; font-size:16px; padding:0; width:100px; margin:0; float:left; display:flex; flex-flow:column nowrap;}
+.st-firstcolumn section {border-left:none; padding:15px 7px;}
+.st-othercolumns {margin:0; padding:0; display:flex; flex-flow:column nowrap; border-radius:0 5px 5px 0;}
+.st-row {margin:0; padding:0; display:block; text-align:center; width:100%; display:flex; flex-flow:row nowrap;}
+.st-cell {display:block; margin:0; padding:10px 7px 20px 7px; height:20px; border-left:2px solid #fff8ed; border-bottom:1px solid #fff8ed; max-width:200px;}
+.st-firstrow {border-bottom:4px solid #fff8ed; text-align:center; font-weight:bold; padding:10px 7px 20px 7px;}
+.st-firstrow input {background-color:#3338;}
+.st-lastrow {border-bottom:none; border-top:3px solid #fff8ed; padding:12px 7px 18px 7px; font-weight:bold; font-size:20px;}
+.st-firstcolumn .st-firstrow {border-top-left-radius:5px; text-align:left; font-size:18px; padding:15px 10px 15px 5px;}
+.st-firstcolumn .st-lastrow {border-bottom-left-radius:5px; text-align:left; font-size:18px;}
+.st-lastcolumn.st-firstrow {border-top-right-radius:5px;}
+.st-lastcolumn.st-lastrow {border-bottom-right-radius:5px;}
+.st-playername {width:100%; margin:0; padding:0; background-color:#444; font-style:normal; font-size:18px; color:#fff8ed; font-weight:500;}
+.st-scorein {min-width:20px; max-width:50px; margin:0; padding:0; background-color:inherit; font-style:normal; color:#fff8ed;}
+.st-cell.st-dealercell {background-color:#014;}
+.st-cell.st-dealercell.st-dealerbonus {padding:10px 0 20px 27px;}
+.st-dealercell input[type="checkbox"] {height:22px; margin-left:10px;}
+
+.incrementing-scoretable {max-width:700px; display:flex; flex-flow:row nowrap; align-content:flex-start;}
+.ist-column0 {width:45%; max-width:315px; border-right:1px solid #fff8ed;}
+.ist-column1 {width:15%; max-width:105px; border-right:1px solid #fff8ed;}
+.ist-column2 {width:20%; max-width:140px; border-right:1px solid #fff8ed;}
+.ist-column3 {width:20%; max-width:140px;}
+.ist-cell {display:block; margin:0; height:calc(20vw - 8px); max-height:140px; border-top:1px solid #fff; font-size:24px;}
+.ist-firstrow {height:auto; border-bottom:3px solid #fff8ed; text-align:center; font-weight:bold; padding:15px 7px; font-size:18px; border-top:none;}
+.ist-column0 .ist-firstrow {text-align:left; border-top-left-radius:5px;}
+.ist-playername {width:80%; margin:calc(20% - 10px) 10%; background-color:#444; font-style:normal; font-size:18px; color:#fff8ed;}
+.ist-playertotal {text-align:center; height:calc(calc(20vw - 8px) - 40%); padding-top:40%; font-size:5vw;}
+.ist-plus {width:12vw; height:12vw; background-color:#080; color:#fff8ed; border-radius:10px; font-style:normal; margin:3vw; font-size:5vw;}
+.ist-minus {width:12vw; height:12vw; background-color:#800; color:#fff8ed; border-radius:10px; font-style:normal; margin:3vw; font-size:5vw;}
+.ist-plus:hover {background-color:#050; color:#0f0; font-weight:bold;}
+.ist-minus:hover {background-color:#600; color:#f00; font-weight:bold;}
+.ist-plus:active {background-color:#050; color:#0f0; font-weight:bold; border-color:#080;}
+.ist-minus:active {background-color:#600; color:#f00; font-weight:bold; border-color:#800;}
+
+.leaderboard {margin:0 0 20px 0; border:0px solid #fff8ed; border-radius:10px; font-size:24px; max-width:680px;}
+.leaderboard h2 {font-size:28px;}
+.lb-row {display:grid; grid-template-columns:80px 1fr 120px; border-radius:10px;}
+.lb-cell {padding:24px 10px 32px 10px; height:24px; border-bottom:1px solid #fff8ed;}
+.lb-rank {font-weight:bold; text-align:center; border-radius:10px; border-right:1px solid #fff8ed;}
+.lb-rank1 {background-color:#caa800;}
+.lb-rank1 .lb-cell {font-size:40px; padding:10px 10px 20px 10px; height:40px;}
+.lb-rank2 {background-color:#999;}
+.lb-rank2 .lb-cell {font-size:34px; padding:16px 10px 24px 10px; height:34px;}
+.lb-rank3 {background-color:#9d5700;}
+.lb-rank3 .lb-cell {font-size:28px; padding:22px 10px 28px 10px; height:28px;}
+.lb-name {border-right:0px solid #fff8ed;}
+.lb-score {border-radius:10px; text-align:center; border-left:1px solid #fff8ed;}
+
+footer {height:60px; background-color:#024; border-top:1px solid #fff8ed; font-style:italic; font-size:14px; line-height:10px; padding:0 10px;}
+
+@media only screen and (max-width:400px) {
+    header h1 {font-size:10vw; margin:0; line-height:40px;}
+    footer {font-size:3vw;}
+
+    .settings-line {height:90px;}
+    .settings-line label {text-align:center; width:100%; display:block;}
+}
+
+@media only screen and (max-width:713px) {
+	main {height:calc(100vh - 248px);}
+	.screen {min-height:calc(100vh - 272px);}
+}
+
+@media only screen and (min-width:700px) {
+	.ist-playertotal {padding-top:54px; height:86px; font-size:32px}
+}
+
+@media only screen and (min-width:770px) {
+	.ist-plus {margin:23.19px; height:91px; width:91px; font-size:38px;}
+	.ist-minus {margin:23.19px; height:91px; width:91px; font-size:38px;}
+}
