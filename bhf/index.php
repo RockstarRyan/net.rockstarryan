@@ -42,8 +42,8 @@
         $answer = strtolower(trim($_POST['answer']));
         $team = intval($_POST['team']);
         switch ($current_puzzle) {
-            case 1: $solved = ($answer == 'volcano'); break;
-            case 2: $solved = ($answer == 'transpacific'); break;
+            case 1: $solved = ($answer == 'test'); break;
+            case 2: $solved = ($answer == '144'); break;
             case 3: $solved = ($answer == 'aloha'); break;
             case 4: $solved = ($answer == 'lummi'); break;
             case 5: $solved = ($answer == 'bar'); break;
@@ -66,6 +66,7 @@
 
     if ($solved) {
         echo "<body class='solved'>";
+            echo "<div id='bhf-logo'></div>";
             echo "<h1>Brighthouse Puzzles</h1>";
             echo "<p>Key.$current_puzzle: ".$key."</p>";
             echo "<p><a href='./".($current_puzzle+1)."'>Next Page &gt;</a></p>";
