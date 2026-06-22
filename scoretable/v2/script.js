@@ -9,7 +9,7 @@
 
 function app_setup() {
 	createPageLayout();
-	master_scores = initializeMasterScoresEmpty();
+	initialize_storage(); // added in V2; replaces call to initializeMasterScores
 	displayGameSettings();
 	for (var i = 0; i < game_info.length; i++) {
 		var game = game_info[i][getIndex("game")[0]][getIndex("game")[1]];
@@ -43,7 +43,7 @@ function displayGameSettings() {	// Displays settings for each game
 			if (changeable_settings[settingID] == 1) {
 
 				var setting_info = getSettingInfo(settingID+1);
-				console.log(setting_info);
+				//console.log(setting_info);
 
 				// Creates container with class "setting"
 				var setting = document.createElement("DIV");
@@ -52,18 +52,18 @@ function displayGameSettings() {	// Displays settings for each game
 				// Creates label for setting
 				var label = document.createElement("LABEL");
 				label.innerHTML = setting_info[getIndexSettingsInfo("label")];
-				console.log(setting_info,getIndexSettingsInfo("label"),setting_info[getIndexSettingsInfo("label")]);
-				console.log(game,"label",label);
+				//console.log(setting_info,getIndexSettingsInfo("label"),setting_info[getIndexSettingsInfo("label")]);
+				//console.log(game,"label",label);
 				setting.appendChild(label);
 
-				console.log(game,setting_info[getIndexSettingsInfo("isInput")]);
+				//console.log(game,setting_info[getIndexSettingsInfo("isInput")]);
 				// Creates actual setting interface
 				if (setting_info[getIndexSettingsInfo("isInput")] == true) {
 					var value; var key; var id; var className; var onchange;
 					id = setting_info[getIndexSettingsInfo("id")];
 					key = setting_info[getIndexSettingsInfo("key")];
 					value = getGameInfo(game,key);
-					console.log(game,id,key,setting_info,value);
+					//console.log(game,id,key,setting_info,value);
 					onchange = "updateGameInfo('"+game+"','"+key+"',this.value,this.id)";
 
 					setting.innerHTML += "<input id='"+game+"-"+id+"' class='"+id+"' type='text' placeholder='"+value+"' value='"+value+"' onchange=\""+onchange+"\">";
@@ -80,7 +80,7 @@ function displayGameSettings() {	// Displays settings for each game
 					for (var index2 = startIndex; index2 < setting_info.length; index2++) {
 						if (setting_info[index2][0] == value) {innerHTML = setting_info[index2][1];}
 					}
-					console.log(game,key,value,innerHTML);
+					//console.log(game,key,value,innerHTML);
 					setting.innerHTML += "<button id='"+game+"-"+id+"' class='"+id+"' onclick=\""+onclick+"\">"+innerHTML+"</button>";
 				}
 				settings_line.appendChild(setting);
@@ -127,7 +127,7 @@ function createPageLayout() {		// Creates document layout
 		var game; var innerHTML = ""; var className = "";
 		if (i == -1) {
 			game = "home";
-			innerHTML = "<p style='margin-top:5px;'>STATUS: JavaScript is enabled.</p><h3>Please select a game from the list of available games</h3>";
+			innerHTML = "<p style='margin-top:5px;'>STATUS: JavaScript is enabled.</p><h3>Please select a game from the list of available games</h3><div><label>Clear scores for all games: </label><button onclick='clear_storage()'>Clear Storage</button>";
 			className = " screen-active"
 		} else {
 			var game_index = getIndex("game");
@@ -167,7 +167,7 @@ function newGame() {
 // ************************* Creates scoretables & master_scores ***********************************
 var master_scores = []; // Filled in with initializeMasterScores()
 function initializeMasterScoresEmpty() {
-	var master_scores_empty;
+	var master_scores_empty = [];
 	for (var i = 0; i < game_info.length; i++) { // For each game (dimension 1)
 		var game = [];
 		var index2 = getIndex("numTables");
@@ -194,9 +194,11 @@ function updateMasterScores(game, no, player, index, newValue, id) { // where in
 
 	// Apply change based on round score or player name (index)
 	if (index != 0) {			// Change to round score
-		if (isNaN(parseInt(newValue))) {
+		if (newValue === '-') {
+			console.warn('Expecting negative input... doing nothing');
+		} else if (isNaN(parseInt(newValue))) {
 			document.getElementById(id).value = master_scores[gameIndex][no-1][player-1][index];
-			console.log("Invalid value. Reverted to previous value.",master_scores[gameIndex][no-1][player-1][index]);
+			console.error("Invalid value. Reverted to previous value.",master_scores[gameIndex][no-1][player-1][index]);
 		} else {
 			newValue = parseInt(newValue);
 			console.log(gameIndex, no-1, player-1, index, newValue);
@@ -654,9 +656,10 @@ function createLeaderboard(game) {				// Creates leaderboard
 // ************************* Set and change game information ***********************************
 
 var game_info = [ // Format: [game,preferences,changeable_settings]. 0    1   2  3  4  5  6      0 1 2 3 4 5 6 7 8 9
-	[["gyn","#222","Get Your Neighbor"], 						  [false, 1, -1, 4, 4,-50,1],	[0,1,1,0,0,0,0,0,0,1]],
+	[["gyn","#222","Get Your Neighbor"], 						  [false, 1, -1, 4, 4, 0,1],	[0,1,1,0,0,0,0,0,0,1]],
 	[["fc", "#710071","Five Crowns"],							  [false, 1, -1, 4, 11,0, 1],	[0,1,0,0,0,0,0,0,0,1]],
-	[["sol","#030","Solitaire","In-Hand","4-Ace","Combine-Pile","Clock"], [false, 4, -1, 2, 4, 0, 0],	[0,1,1,0,1,0,0,0,0,1]],
+	[["sol","#030","Solitaire","In-Hand","4-Ace","Combine-Pile","Clock","Fans","Double or Quits","Hit or Miss","Trailblazer","Block 10"], [false, 9, -1, 2, 4, 0, 0],	[0,1,1,0,1,0,0,0,0,1]],
+	[["sj","#08a","Skyjo"],									  [false, 1,  -1, 5, 4, 0, 0],	[0,1,1,0,0,1,1,0,0,1]],
 	[["inc","#222","Incrementing"],								  [true,  1,  1, 4, 1, 1, 1],	[1,1,0,1,0,0,0,1,1,1]],
 	[["gen","#111","General"],									  [false, 1,  1, 4, 4, 0, 1],	[1,1,1,1,0,1,1,0,0,1]],
 ];
@@ -906,6 +909,26 @@ function clearExisting(game, string, no) {
 	return;
 }
 
+function is_storage_available(type) {
+	// Test if local or session storage features are supported. Source: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+	let storage;
+	try {
+		storage = window[type];
+		const x = "__storage_test__";
+		storage.setItem(x, x);
+		storage.removeItem(x);
+		return true;
+	} catch (e) {
+		return (
+			e instanceof DOMException &&
+			e.name === "QuotaExceededError" &&
+			// acknowledge QuotaExceededError only if there's something already stored
+			storage &&
+			storage.length !== 0
+		);
+	}
+}
+
 // Initialize storage (added in V2). Critical variables: game_info, master_scores
 function initialize_storage() {
 	if (is_storage_available("localStorage")) {
@@ -925,6 +948,7 @@ function initialize_storage() {
 			master_scores = JSON.parse(localStorage.getItem('master_scores'));
 		} else {
 			console.log("master_scores NOT retrieved from localStorage - welcome, new user!");
+			master_scores = initializeMasterScoresEmpty();
 			localStorage.setItem('master_scores',JSON.stringify(master_scores));
 		}
 
@@ -936,9 +960,10 @@ function initialize_storage() {
 function clear_storage() {
 	if (confirm("Are you sure you want to clear your stored scores and game configurations? This action can NOT be undone.")) {
 		game_info = [ // Format: [game,preferences,changeable_settings]. 0    1   2  3  4  5  6      0 1 2 3 4 5 6 7 8 9
-			[["gyn","#222","Get Your Neighbor"], 						  [false, 1, -1, 4, 4,-50,1],	[0,1,1,0,0,0,0,0,0,1]],
+			[["gyn","#222","Get Your Neighbor"], 						  [false, 1, -1, 4, 4, 0,1],	[0,1,1,0,0,0,0,0,0,1]],
 			[["fc", "#710071","Five Crowns"],							  [false, 1, -1, 4, 11,0, 1],	[0,1,0,0,0,0,0,0,0,1]],
-			[["sol","#030","Solitaire","In-Hand","4-Ace","Combine-Pile","Clock"], [false, 4, -1, 2, 4, 0, 0],	[0,1,1,0,1,0,0,0,0,1]],
+			[["sol","#030","Solitaire","In-Hand","4-Ace","Combine-Pile","Clock","Fans","Double or Quits","Hit or Miss","Trailblazer","Block 10"], [false, 9, -1, 2, 4, 0, 0],	[0,1,1,0,1,0,0,0,0,1]],
+			[["sj","#08a","Skyjo"],									  [false, 1,  -1, 5, 4, 0, 0],	[0,1,1,0,0,1,1,0,0,1]],
 			[["inc","#222","Incrementing"],								  [true,  1,  1, 4, 1, 1, 1],	[1,1,0,1,0,0,0,1,1,1]],
 			[["gen","#111","General"],									  [false, 1,  1, 4, 4, 0, 1],	[1,1,1,1,0,1,1,0,0,1]],
 		];
