@@ -58,7 +58,7 @@
             $keys[4] = ['',1,2,4,1,2,5];
             $keys[5] = ['',1,2,4,1,2,5];
 
-            $key = [$current_puzzle][$team];
+            $key = $keys[$current_puzzle][$team];
         }
     }
 
