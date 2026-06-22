@@ -24,11 +24,13 @@
 	<meta name="author" content="Ryan Gross">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-		body {font-family:"Apple Chancery", "Cormorant Garamond", serif; background-color:#C3A77E; color:#000; display:flex; flex-flow:column nowrap; justify-content:center; margin:0; padding:0; text-align:center;}
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+		body {font-family:"Roboto", "SF-Pro", "Arial", sans-serif; background-color:#ffffff; color:#000; display:flex; flex-flow:column nowrap; justify-content:center; margin:0; padding:0; text-align:center;}
         body.solved {background-color:#000; color:#fff;}
         a {color:#fff;}
         p {font-size: 24px;}
-        #bhf-logo {background-image: linear-gradient(to right, rgb(0, 141, 148) 0px, rgb(0, 141, 148) 20%, rgb(30, 149, 111) 20%, rgb(30, 149, 111) 40%, rgb(49, 146, 83) 40%, rgb(49, 146, 83) 60%, rgb(90, 164, 37) 60%, rgb(90, 164, 37) 80%, rgb(121, 172, 0) 80%, rgb(121, 172, 0) 100%); width:200px; height:200px;}
+        #bhf-logo {background-image: linear-gradient(to right, rgb(0, 141, 148) 0px, rgb(0, 141, 148) 20%, rgb(30, 149, 111) 20%, rgb(30, 149, 111) 40%, rgb(49, 146, 83) 40%, rgb(49, 146, 83) 60%, rgb(90, 164, 37) 60%, rgb(90, 164, 37) 80%, rgb(121, 172, 0) 80%, rgb(121, 172, 0) 100%); width:150px; height:150px; margin:10px auto;}
 	</style>
 </head><?php
     // Verify answer
