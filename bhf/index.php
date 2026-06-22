@@ -32,7 +32,7 @@
         body.solved {background-color:#000; color:#fff;}
         a {color:rgb(121,172,0);}
         p {font-size:24px;}
-        #bhf-logo {background-image: /*linear-gradient(to right, rgb(0, 141, 148) 0px, rgb(0, 141, 148) 20%, rgb(30, 149, 111) 20%, rgb(30, 149, 111) 40%, rgb(49, 146, 83) 40%, rgb(49, 146, 83) 60%, rgb(90, 164, 37) 60%, rgb(90, 164, 37) 80%, rgb(121, 172, 0) 80%, rgb(121, 172, 0) 100%);*/ url("./brighthouse-financial-logo-house-nav.svg");width:150px; height:150px; margin:10px auto;}
+        #bhf-logo {background-image: /*linear-gradient(to right, rgb(0, 141, 148) 0px, rgb(0, 141, 148) 20%, rgb(30, 149, 111) 20%, rgb(30, 149, 111) 40%, rgb(49, 146, 83) 40%, rgb(49, 146, 83) 60%, rgb(90, 164, 37) 60%, rgb(90, 164, 37) 80%, rgb(121, 172, 0) 80%, rgb(121, 172, 0) 100%);*/ url("./brighthouse-financial-logo-house-nav.svg");width:147px; height:150px; margin:10px auto;}
 	</style>
 </head><?php
     // Verify answer
