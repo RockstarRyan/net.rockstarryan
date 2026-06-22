@@ -144,7 +144,7 @@
         echo "</body>";
     } else {
         echo "<body class='unsolved'>";
-        echo "<div id='bhf-logo></div>"
+        echo "<div id='bhf-logo></div>";
         echo "<h1>Road Trip Puzzles</h1>";
         echo "<div><form id='form-submitanswer' method='post'>";
             echo "<label for='answer'><p>Solve page $current_puzzle:</p></label>";
