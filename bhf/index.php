@@ -75,8 +75,9 @@
         echo "<body class='solved'>";
             echo "<div id='bhf-logo'></div>";
             echo "<h1>$site_title</h1>";
-            echo "<p>Key.$current_puzzle: ".$key."</p>";
-            echo "<p><a href='./".($current_puzzle+1)."'>Next Page &gt;</a></p>";
+            echo "<p><em>Great job!</em></p>";
+            echo "<p>Clue for #$current_puzzle: ".$key."</p>";
+            echo "<p><a href='./".($current_puzzle+1)."'>Next Puzzle &gt;</a></p>";
         echo "</body>";
     } else {
         echo "<body class='unsolved'>";
@@ -84,7 +85,7 @@
             echo "<h1>$site_title</h1>";
             echo "<div><form id='form-submitanswer' method='post'>";
                 echo "<label for='team'>Team #:</label><select name='team' id='team-dropdown'><option value='1'>Team 1</option><option value='2'>Team 2</option><option value='3'>Team 3</option><option value='4'>Team 4</option><option value='5'>Team 5</option><option value='6'>Team 6</option></select>";
-                echo "<label for='answer'><p>Answer station #$current_puzzle:</p></label>";
+                echo "<label for='answer'><p>Answer #$current_puzzle:</p></label>";
                 echo "<input type='text' name='answer' id='answer-box' />";
                 echo "<input type='submit' title='Submit' value='Submit' />";
             echo "</form></div>";
