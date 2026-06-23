@@ -43,23 +43,28 @@
     if (isset($_POST['answer']) && isset($_POST['team'])) {
         $answer = strtolower(trim($_POST['answer']));
         $team = intval($_POST['team']);
-        switch ($current_puzzle) {
-            case 1: $solved = ($answer == 'test'); break;
-            case 2: $solved = ($answer == '144'); break;
-            case 3: $solved = ($answer == 'aloha'); break;
-            case 4: $solved = ($answer == 'lummi'); break;
-            case 5: $solved = ($answer == 'bar'); break;
-            default: $solved = false; break;
-        }
+
+        $correct_answers = [ // $correct_answers[puzzle][team] = "answer"
+            /* leave blank */ //['','','','','','',''],
+            /* Puzzle 1: */ //['','T1','T2','T3','T4'],
+            /* Puzzle 2: */ //['','T1','T2','T3','T4'],
+            /* Puzzle 3: */ //['','T1','T2','T3','T4'],
+            /* Puzzle 4: */ //['','T1','T2','T3','T4'],
+            /* Puzzle 5: */ //['','144','144','144','144']
+            '1423','14034','rockingham','70','144'
+        ];
+        $keys = [ // $keys[puzzle][team] = "clue"
+            /* leave blank */ ['','','','','','',''],
+            /* Puzzle 1: */ ['','06','06','06','06'],
+            /* Puzzle 2: */ ['','2','2','9','9'],
+            /* Puzzle 3: */ ['','3','6','4','7'],
+            /* Puzzle 4: */ ['','3','3','3','3'],
+            /* Puzzle 5: */ ['','That\'s all there is to it!','That\'s all there is to it!','That\'s all there is to it!','That\'s all there is to it!']
+        ];
+
+        $solved = ($answer == $correct_answers[$current_puzzle][$team]);
 
         if ($solved) {
-            $keys = array(); // [puzzle][team]
-            $keys[1] = ['',1,2,4,1,2,5];
-            $keys[2] = ['',1,2,4,1,2,5];
-            $keys[3] = ['',1,2,4,1,2,5];
-            $keys[4] = ['',1,2,4,1,2,5];
-            $keys[5] = ['',1,2,4,1,2,5];
-
             $key = $keys[$current_puzzle][$team];
         }
     }
