@@ -62,7 +62,7 @@
             /* Puzzle 5: */ ['','That\'s all there is to it!','That\'s all there is to it!','That\'s all there is to it!','That\'s all there is to it!']
         ];
 
-        $solved = ($answer == $correct_answers[$current_puzzle][$team]);
+        $solved = ($answer == $correct_answers[$current_puzzle]);
 
         if ($solved) {
             $key = $keys[$current_puzzle][$team];
