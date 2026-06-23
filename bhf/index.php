@@ -40,32 +40,38 @@
     $solved = false;
     $key = '';
 
+    $error_msg = '';
+
     if (isset($_POST['answer']) && isset($_POST['team'])) {
         $answer = strtolower(trim($_POST['answer']));
         $team = intval($_POST['team']);
 
-        $correct_answers = [ // $correct_answers[puzzle][team] = "answer"
-            /* leave blank */ //['','','','','','',''],
-            /* Puzzle 1: */ //['','T1','T2','T3','T4'],
-            /* Puzzle 2: */ //['','T1','T2','T3','T4'],
-            /* Puzzle 3: */ //['','T1','T2','T3','T4'],
-            /* Puzzle 4: */ //['','T1','T2','T3','T4'],
-            /* Puzzle 5: */ //['','144','144','144','144']
-            '','1423','14034','rockingham','70','144'
-        ];
-        $keys = [ // $keys[puzzle][team] = "clue"
-            /* leave blank */ ['','','','','','',''],
-            /* Puzzle 1: */ ['','06','06','06','06'],
-            /* Puzzle 2: */ ['','2','2','9','9'],
-            /* Puzzle 3: */ ['','3','6','4','7'],
-            /* Puzzle 4: */ ['','3','3','3','3'],
-            /* Puzzle 5: */ ['','That\'s all there is to it!','That\'s all there is to it!','That\'s all there is to it!','That\'s all there is to it!']
-        ];
+        if ($team == 0) {
+            $error_msg = '<p style="background-color:red; color:white;">Please select your team number, then try again</p>';
+        } else {
+            $correct_answers = [ // $correct_answers[puzzle][team] = "answer"
+                /* leave blank */ //['','','','','','',''],
+                /* Puzzle 1: */ //['','T1','T2','T3','T4'],
+                /* Puzzle 2: */ //['','T1','T2','T3','T4'],
+                /* Puzzle 3: */ //['','T1','T2','T3','T4'],
+                /* Puzzle 4: */ //['','T1','T2','T3','T4'],
+                /* Puzzle 5: */ //['','144','144','144','144']
+                '','1423','14034','rockingham','70','144'
+            ];
+            $keys = [ // $keys[puzzle][team] = "clue"
+                /* leave blank */ ['','','','','','',''],
+                /* Puzzle 1: */ ['','06','06','06','06'],
+                /* Puzzle 2: */ ['','2','2','9','9'],
+                /* Puzzle 3: */ ['','3','6','4','7'],
+                /* Puzzle 4: */ ['','3','3','3','3'],
+                /* Puzzle 5: */ ['','That\'s all there is to it!','That\'s all there is to it!','That\'s all there is to it!','That\'s all there is to it!']
+            ];
 
-        $solved = ($answer == $correct_answers[$current_puzzle]);
+            $solved = ($answer == $correct_answers[$current_puzzle]);
 
-        if ($solved) {
-            $key = $keys[$current_puzzle][$team];
+            if ($solved) {
+                $key = $keys[$current_puzzle][$team];
+            }
         }
     }
 
@@ -83,10 +89,11 @@
         echo "<body class='unsolved'>";
             echo "<div id='bhf-logo'></div>";
             echo "<h1>$site_title</h1>";
+            echo $error_msg;
             echo "<div><form id='form-submitanswer' method='post'>";
-                echo "<label for='team'>Team #:</label><select name='team' id='team-dropdown'><option value='1'>Team 1</option><option value='2'>Team 2</option><option value='3'>Team 3</option><option value='4'>Team 4</option><option value='5'>Team 5</option><option value='6'>Team 6</option></select>";
+                echo "<label for='team'>Team #:</label><select name='team' id='team-dropdown'><option value='0'>- - Select your team - -</option><option value='1'>Team 1</option><option value='2'>Team 2</option><option value='3'>Team 3</option><option value='4'>Team 4</option><option value='5'>Team 5</option><option value='6'>Team 6</option></select>";
                 echo "<label for='answer'><p>Answer #$current_puzzle:</p></label>";
-                echo "<input type='text' name='answer' id='answer-box' />";
+                echo "<input type='text' name='answer' id='answer-box' value='$answer'/>";
                 echo "<input type='submit' title='Submit' value='Submit' />";
             echo "</form></div>";
             echo "<script> document.getElementById('team-dropdown').focus(); </script>";
